@@ -27,12 +27,12 @@ echo
 
 # Procesos de mayor consumo
 echo "Procesos de Mayor consumo"
-ps aux --sort=%mem | head -n 6
+ps aux --sort=-%mem | head -n 6
 echo
 
 # Mostrar mayor consumo de CPU
 echo "Consumo de CPU"
-ps aux --sort=%cpu | head -n 6
+ps aux --sort=-%cpu | head -n 6
 echo
 
 echo "Monitoreo finalizado"
