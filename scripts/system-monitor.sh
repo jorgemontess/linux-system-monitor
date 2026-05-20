@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Creando y guardando el log del monitoreo en un archivo con fecha
+LOG_FILE="logs/system_$(date +%Y-%m-%d).log"
+
+mkdir -p logs
+
+exec > >(tee -a "$LOG_FILE") 2>&1
+
 echo "==================================="
 echo " Linux System Monitor"
 echo "==================================="
