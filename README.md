@@ -19,6 +19,8 @@ Crear un script que nos pueda mostrar información basica del sistema, como fech
 ```text
 linux-system-monitor/
 ├── README.md
+├── logs/
+│   └── system_date.log
 └── scripts/
     └── system_monitor.sh
 ```
