@@ -30,7 +30,19 @@ echo
 # Uso de CPU
 cpu_usage(){
 echo "Uso de CPU"
-top -b -n 1 | grep "Cpu(s)"
+cpu_info=$(top -b -n 1 | grep "Cpu(s)")
+echo "$cpu_info"
+
+cpu_idle=$(echo "$cpu_info" | awk '{print $8}')
+
+cpu_usage=$(echo "100 - $cpu_idle" | bc)
+
+if (( $(echo "$cpu_usage > 80" | bc -l) )); then
+    echo "Alerta: Uso de CPU alto: $cpu_usage%"
+else
+    echo "Uso de CPU: $cpu_usage%"
+fi
+
 echo
 }
 
@@ -38,7 +50,20 @@ echo
 # Mostrar Memoria
 memory_usage(){
 echo "Uso de memoria"
-free -h
+memory_info=$(free -h)
+echo "$memory_info"
+
+total_memory=$(free -m | grep Mem | awk '{print $2}')
+used_memory=$(free -m | grep Mem | awk '{print $3}')
+
+memory_usage=$(printf "%.2f" $(echo "$used_memory / $total_memory * 100" | bc -l))
+
+if (( $(echo "$memory_usage > 70" | bc -l) )); then
+    echo "Alerta: Uso de memoria alto: $memory_usage%"
+else
+    echo "Uso de memoria: $memory_usage%"
+fi
+
 echo
 }
 
