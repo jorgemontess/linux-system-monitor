@@ -1,10 +1,10 @@
 # Linux System Monitor (Sistema de monitoreo de sistema Linux)
 
-Projecto práctico de DevOps para monitorear recursos basicos de un sistema Linux utilizando Bash.
+Proyecto práctico de DevOps para monitorear recursos básicos de un sistema Linux utilizando Bash.
 
 ## Objetivo
 
-Crear un script que nos pueda mostrar información basica del sistema, como fecha y hora, uso de CPU, uso de memoria, espacio en disco, y procesos con mayor consumo.
+Crear un script que nos pueda mostrar información básica del sistema, como fecha y hora, uso de CPU, uso de memoria, espacio en disco, y procesos con mayor consumo.
 
 ## Tecnologías Utilizadas
 
@@ -13,6 +13,15 @@ Crear un script que nos pueda mostrar información basica del sistema, como fech
 - NeoVim (Editor de texto)
 - Git (Control de versiones)
 - GitHub (Repositorio remoto)
+
+## Caracteristicas
+
+- Monitoreo de uso de CPU
+- Monitoreo de memoria RAM
+- Monitoreo de espacio en disco
+- Procesos con mayor consumo
+- Generación automática de logs
+- Limpieza automatica de logs antiguos
 
 ## Estructura del proyecto
 
@@ -30,7 +39,7 @@ linux-system-monitor/
 1. Clona el repositorio en tu sistema Linux:
 
 ```bash
-https://github.com/jorgemontess/linux-system-monitor.git
+git clone https://github.com/jorgemontess/linux-system-monitor.git
 ```
 
 2. Navega al directorio del proyecto:
@@ -51,3 +60,6 @@ chmod +x scripts/system_monitor.sh
 ./scripts/system_monitor.sh
 ```
 
+## Vista
+
+![System Monitor](images/preview.png)

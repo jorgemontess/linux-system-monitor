@@ -81,6 +81,15 @@ ps aux --sort=-%cpu | head -n 6
 echo
 }
 
+# Buscar logs
+cleanup_old_logs(){
+    echo "Limpiando logs antiguos..."
+    echo "Logs Eliminados:"
+    find logs/ -name "*.log" -mtime +2
+    find logs/ -name "*.log" -mtime +2 -delete
+    echo
+}
+
 # Ejecutar las funciones
 show_header
 show_date
@@ -89,9 +98,7 @@ cpu_usage
 memory_usage
 top_memory_processes
 top_cpu_processes
+cleanup_old_logs
 
 echo "Monitoreo finalizado"
-echo
-echo
-
-
+printf "\n\n"
