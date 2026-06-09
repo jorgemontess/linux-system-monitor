@@ -1,9 +1,13 @@
 #!/bin/bash
 
 # Creando y guardando el log del monitoreo en un archivo con fecha
-LOG_FILE="logs/system_$(date +%Y-%m-%d).log"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 
-mkdir -p logs
+LOG_DIR="$PROJECT_ROOT/logs"
+LOG_FILE="$LOG_DIR/system_$(date +%Y-%m-%d).log"
+
+mkdir -p "$LOG_DIR"
 
 exec > >(tee -a "$LOG_FILE") 2>&1
 
@@ -90,6 +94,14 @@ cleanup_old_logs(){
     echo
 }
 
+upload_s3(){
+    echo "Subiendo archivo s3..."
+
+    aws s3 cp "$LOG_FILE" s3://jorge-linux-monitor-logs
+
+    echo
+}
+
 # Ejecutar las funciones
 show_header
 show_date
@@ -99,6 +111,7 @@ memory_usage
 top_memory_processes
 top_cpu_processes
 cleanup_old_logs
+#upload_s3
 
 echo "Monitoreo finalizado"
 printf "\n\n"
