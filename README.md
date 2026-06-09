@@ -13,23 +13,31 @@ Crear un script que nos pueda mostrar información básica del sistema, como fec
 - NeoVim (Editor de texto)
 - Git (Control de versiones)
 - GitHub (Repositorio remoto)
+- Docker (Contenerización)
+- Amazon s3 (Almacenamiento de logs)
 
 ## Caracteristicas
 
 - Monitoreo de uso de CPU
 - Monitoreo de memoria RAM
 - Monitoreo de espacio en disco
-- Procesos con mayor consumo
+- Identificación de procesos con mayor consumo de CPU y memoria
 - Generación automática de logs
-- Limpieza automatica de logs antiguos
+- Limpieza automática de logs antiguos
+- Subida de logs a Amazon S3
+- Ejecución mediante Docker
 
 ## Estructura del proyecto
 
 ```text
 linux-system-monitor/
 ├── README.md
+├── Dockerfile
+├── docker-compose.yml
 ├── logs/
-│   └── system_date.log
+│   └── system_YYYY-MM-DD.log
+├── images/
+│   └── preview.png
 └── scripts/
     └── system_monitor.sh
 ```
