@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches:
+      master
+      main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Validate bash script
+        run: bash -n scripts/system-monitor.sh
+
+      - name: Build docker image
+        run: docker build -t linux-system-monitor .

@@ -14,7 +14,7 @@ Crear un script que nos pueda mostrar información básica del sistema, como fec
 - Git (Control de versiones)
 - GitHub (Repositorio remoto)
 - Docker (Contenerización)
-- Amazon s3 (Almacenamiento de logs)
+- Amazon S3 (Almacenamiento de logs)
 
 ## Caracteristicas
 
