@@ -60,7 +60,8 @@ echo "$memory_info"
 total_memory=$(free -m | grep Mem | awk '{print $2}')
 used_memory=$(free -m | grep Mem | awk '{print $3}')
 
-memory_usage=$(printf "%.2f" $(echo "$used_memory / $total_memory * 100" | bc -l))
+memory_percent=$(echo "$used_memory / $total_memory * 100" | bc -l)
+memory_usage=$(printf "%.2f" "$memory_percent")
 
 if (( $(echo "$memory_usage > 70" | bc -l) )); then
     echo "Alerta: Uso de memoria alto: $memory_usage%"

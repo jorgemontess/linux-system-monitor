@@ -17,5 +17,11 @@ jobs:
       - name: Validate bash script
         run: bash -n scripts/system-monitor.sh
 
+      - name: Install shellCheck
+        run: sudo apt-get update && sudo apt-get install shellcheck
+
+      - name: Run shellCheck
+        run: shellcheck ./scripts/system-monitor.sh
+
       - name: Build docker image
         run: docker build -t linux-system-monitor .
