@@ -27,7 +27,7 @@ jobs:
         run: docker build -t linux-system-monitor .
 
       - name: Configure AWS credentials
-        uses: aws-action/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -35,9 +35,9 @@ jobs:
 
       - name: Login to Amazon ECR
         id: login-ecr
-        uses: aws-action/amazon-ecr-login@v2
+        uses: aws-actions/amazon-ecr-login@v2
 
-      - name: Tag Docker Image
+      - name: Tag docker image
         run: | 
           docker tag linux-system-monitor:latest \
           ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/linux-system-monitor:latest
