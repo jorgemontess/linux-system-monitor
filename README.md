@@ -26,12 +26,33 @@ Crear un script que nos pueda mostrar información básica del sistema, como fec
 - Limpieza automática de logs antiguos
 - Subida de logs a Amazon S3
 - Ejecución mediante Docker
+- CI Pipeline con GitHub Actions
+- Análisis estático con ShellCheck
+- Construcción automática de imágenes Docker
+- Publicación automática de imágenes en AWS ECR
+
+## CI/CD Pipeline
+
+```text
+Git Push
+↓
+GitHub Actions
+↓
+ShellCheck
+↓
+Docker Build
+↓
+AWS ECR
+```
 
 ## Estructura del proyecto
 
 ```text
 linux-system-monitor/
 ├── README.md
+├── .github/
+│   └── workflows/
+│       └── ci.yml
 ├── Dockerfile
 ├── docker-compose.yml
 ├── logs/
